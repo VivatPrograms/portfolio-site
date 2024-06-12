@@ -368,7 +368,7 @@ nav::before {
 }
 
 .portfolio {
-    background: url(./assets/dustbg.webp);
+    background: url(./assets/portfoliobg.webp);
     background-size: cover;
     align-items: center;
     justify-content: center;
