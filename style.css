@@ -566,6 +566,8 @@ nav::before {
     nav {
         font-size: 1.5rem;
         overflow: hidden;
+        padding-left: 1vw;
+        padding-right: 1vw; 
     }
 
     .nav-items {
@@ -573,7 +575,7 @@ nav::before {
         display: flex;
         gap: 0px;
         height: 100%;
-        width: 50%;
+        width: 60%;
         justify-content: flex-end;
         align-items: center;
     }
@@ -585,8 +587,8 @@ nav::before {
     }
     
     .nav-items a button {
-        width: 30px;
-        height: 30px;
+        width: 2rem;
+        height: 2rem;
         border: none;
         background-size: cover;
         background-color: transparent;
@@ -714,8 +716,8 @@ nav::before {
 
     #end-page {
         height: auto;
-        width: 45%;
-        gap: 3px;
+        width: auto;
+        gap: 1vw;
     }
 
     .end-text {
