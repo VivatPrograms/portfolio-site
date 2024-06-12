@@ -1,0 +1,719 @@
+* {
+    box-sizing: border-box;
+    font-family: "Switzer", sans-serif;
+    margin: 0;
+    padding: 0;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #070F2B;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+/* Base styles for the elements */
+h1, h2, h3, p, .text-element {
+    opacity: 0;
+    transform: translateY(-20px);
+    filter: blur(5px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, filter 0.6s ease-out;
+}
+
+/* Class to apply when elements come into view */
+.in-view {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+/* Downward scroll class */
+.downward {
+    transform: translateY(20px);
+}
+
+/* Upward scroll class */
+.upward {
+    transform: translateY(-20px);
+}
+
+
+/* Initial styles for sections and animations */
+.hero {
+    position: relative;
+    z-index: 1;
+}
+
+.about {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+}
+
+.about.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+
+section {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.fade-in {
+    opacity: 1;
+}
+
+nav {
+    background-image: url(./assets/hero2.webp);
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    /* overflow: hidden; */
+    z-index: 10; /* Ensure the nav bar is above the hero section */
+    color: antiquewhite;
+    font-size: 2.75rem;
+    font-weight: bold;
+    text-shadow: 
+        1px 1px 0 orange, /* Shadow 1 */
+        2px 2px 0 orange, /* Shadow 2 */
+        3px 3px 0 orange; /* Shadow 3 */
+    border-bottom: 0.25rem solid black;
+    overflow: hidden;
+}
+
+.logo {
+    padding: 0.5rem;
+}
+
+.nav-items {
+    position: relative;
+    display: flex;
+    gap: 10px;
+    height: auto;
+    width: 50%;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.nav-items a {
+    text-decoration: none;
+    margin-right: 10px;
+    background-color: none;
+}
+
+.nav-items a button {
+    width: 50px;
+    height: 50px;
+    border: none;
+    background-size: cover;
+    background-color: transparent;
+    margin-top: 10px;
+    transition: opacity 0.1s ease; /* Add transition for smooth effect */
+}
+
+.nav-items a button:hover {
+    opacity: 0.7; /* Change opacity on hover */
+}
+
+nav::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    box-shadow: inset 0 0 2000px rgba(0, 0, 255, 0.5);
+    filter: blur(5px);
+    z-index: -1;
+}
+
+.hero {
+    background-image: url("./assets/hero.webp");
+    background-size: cover;
+    position: relative;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 0; /* Ensure the hero section is below the nav bar */
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+.hero h1 {
+    color: dodgerblue;
+    font-size: 5vw;
+    margin-top: 20vh; /* Position h1 20vh from the top */
+    margin-bottom: 2.5vh;
+    text-shadow: 0 0 3rem rgba(0, 0, 255, 0.5); /* Adjust the color and size of the glow here */
+}
+
+.hero h2 {
+    color: antiquewhite;
+    font-size: 4vw;
+    margin-bottom: 25vh;
+    font-style: italic;
+    animation: fadeInText 3s infinite; /* Adjust the duration to match the transition time */
+    text-shadow: 
+        1px 1px 0 orange, /* Shadow 1 */
+        2px 2px 0 orange, /* Shadow 2 */
+        3px 3px 0 orange; /* Shadow 3 */
+    padding: 0.5rem;
+}
+
+@keyframes fadeInText {
+    0%, 20% {
+        opacity: 0; /* Start, text is invisible */
+    }
+    40%, 60% {
+        opacity: 1; /* Midway through, text is visible */
+    }
+    100% {
+        opacity: 0; /* End, text fades out */
+    }
+}
+
+.hero button {
+    transition: 0.1s ease-in-out;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem; /* Adjust padding for better appearance */
+    background-color: dodgerblue;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 10px 5px rgba(30, 144, 255, 0.5); /* Add glow effect */
+    position: absolute;
+    bottom: 20vh; /* Position button 20vh from the bottom */
+    animation: pulsate .5s infinite alternate; /* Apply pulsate animation */
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.015);
+    }
+}
+
+.hero button:hover {
+    background-color: rgb(30, 161, 255);
+    box-shadow: 0 0 10px 5px rgba(30, 143, 255, 0.459);
+    transition: 0.05s ease-in-out;
+}
+
+.hero button:active {
+    background-color: rgb(30, 233, 255);
+    box-shadow: 0 0 10px 5px rgba(30, 233, 255, 0.374);
+}
+
+
+
+.about {
+    transition: transform 1s ease, opacity 1s ease;
+    position: relative;
+    height: auto;
+    background-image: url(./assets/about.gif);
+    background-size: cover;
+    overflow: hidden; /* This ensures that the pseudo-element doesn't overflow the container */
+}
+
+.columns {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr 1fr; /* Creates two equal columns */
+    align-items:center; /* Centers items vertically */
+    justify-items: baseline; /* Centers items horizontally */
+}
+
+.column1, .column2 {
+    display: flex;
+    justify-content: center; /* Centers items horizontally within the column */
+    align-items: center; /* Centers items vertically within the column */
+    text-align: center; /* Ensures text is centered */
+    flex-direction: column;
+    overflow: visible;
+}
+
+.who-text {
+    position: relative;
+    color: antiquewhite;
+    margin-bottom: 5vh;
+    margin-top: 5vh;
+    font-size: 5rem;
+    font-weight: bold;
+    text-shadow: 
+        1px 1px 0 orange, /* Shadow 1 */
+        2px 2px 0 orange, /* Shadow 2 */
+        3px 3px 0 orange; /* Shadow 3 */
+    padding: 0.5rem;
+}
+
+.about-me-box {
+    overflow: visible;
+    width: 80%;
+    border-radius: 1rem;
+    background-color: aliceblue;
+    position: relative; /* Ensure this is set to relative */
+    margin: 0 auto; /* Optional: center the box horizontally */
+    border: 0.33rem solid rgb(0, 0, 0);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Adds a glowing shadow effect */
+}
+
+.divider {
+    width: 90%;
+    border: 1px solid #333; /* Adjust color and width as needed */
+    margin: 2rem auto; /* Adjust spacing as needed */
+}
+
+
+.profile {
+    border-radius: 1rem;
+    width: 10rem;
+    position: absolute;
+    top: -1.5rem; /* Adjust to place the image slightly outside the top */
+    left: -1.5rem; /* Adjust to place the image slightly outside the left */
+    border: 0.33rem solid black; /* Add a black border */
+    background-color: white; /* Optional: to ensure the background of the image is white */
+}
+
+.first-text {
+    position: relative;
+    padding-left: 6rem;
+    padding-top: 1rem;
+    font-size: 3rem;
+}
+
+.first-p {
+    text-align: center;
+    width: 90%;
+    padding-left: 10rem;
+    padding-top: 1rem;
+    font-size: 1.5rem;
+}
+
+.second-text {
+    padding: 1rem;
+    padding-top: 0rem;
+    font-size: 3rem;
+}
+
+.second-p {
+    text-align: center;
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.payment {
+    width: 80%;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Adds a glowing shadow effect */
+}
+
+.discord {
+    width: 60%;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5); /* Adds a glowing shadow effect */
+}
+
+.happy-text {
+    font-size: 4rem;
+    position: relative;
+    color: antiquewhite;
+    margin-top: 5vh;
+    font-weight: bold;
+    text-shadow: 
+        1px 1px 0 orange, /* Shadow 1 */
+        2px 2px 0 orange, /* Shadow 2 */
+        3px 3px 0 orange; /* Shadow 3 */
+    padding: 0.5rem;
+}
+
+
+
+
+.gradient-div {
+    background: linear-gradient(#070F2B 0%, #183391 50%, #070F2B 100%);
+}
+
+.portfolio {
+    background: url(./assets/dustbg.png);
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel {
+    position: relative;
+    max-width: 90%;
+    overflow: hidden;
+    border-radius: 1rem;
+    border: 0.33rem solid rgb(0, 0, 0);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    transition: opacity 1s ease-in-out;
+    /* margin-bottom: 10vh; */
+    margin-top: 10vh;
+}
+
+.carousel-item.active {
+    opacity: 1;
+}
+
+.carousel-item {
+    display: none;
+    width: 100vw;
+    height: auto;
+    object-fit: cover;
+}
+
+.carousel-item.active {
+    display: block;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 2rem;
+    padding: 20px;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+    border-radius: 50%;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    user-select: none;
+}
+
+.prev:hover, .next:hover {
+    background-color: dodgerblue;
+    color: antiquewhite;
+}
+
+.prev:active, .next:active {
+    background-color: rgba(255, 255, 255, 0.8); /* Dim the color slightly on click */
+}
+
+.prev {
+    left: 1rem;
+}
+
+.next {
+    right: 1rem;
+}
+
+.visit-button {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+    bottom: 1rem;
+    transform: translateX(-50%);
+    left: 50%;
+    border-radius: 1rem;
+    transition: color 0.1s, background-color 0.1s;
+}
+
+.visit-button:hover {
+    background-color: dodgerblue;
+    color: antiquewhite;
+}
+
+.visit-button:active {
+    background-color: rgba(255, 255, 255, 0.8); /* Dim the color slightly on click */
+}
+
+.big-text {
+    font-size: 4rem;
+    position: relative;
+    color: antiquewhite;
+    margin-bottom: 5vh;
+    font-weight: bold;
+    text-shadow: 
+        1px 1px 0 orange, /* Shadow 1 */
+        2px 2px 0 orange, /* Shadow 2 */
+        3px 3px 0 orange; /* Shadow 3 */
+    padding: 0.5rem;
+}
+
+.port-p1 {
+    font-size: 2rem;
+    position: relative;
+    color: white;
+    width: 80%;
+    margin-bottom: 2vh;
+}
+
+.port-p2 {
+    font-size: 2rem;
+    position: relative;
+    color: white;
+    width: 80%;
+}
+
+.expertise {
+    display: flex;
+    flex-wrap: wrap; /* Add this line to allow wrapping */
+    width: 80%;
+    align-items: center;
+    justify-content: center;
+}
+
+.knowledge {
+    max-height: 70px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+
+.divider-2 {
+    width: 90%;
+    border: 1px solid white; /* Adjust color and width as needed */
+    margin: 3rem auto; /* Adjust spacing as needed */
+}
+
+
+
+.contact {
+    height: 60vh;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#end-page-box {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#end-page {
+    height: 10vh;
+    align-items: flex-start;
+    justify-content: center;
+    background-color: #070F2B;
+    border: 0.33rem solid rgb(0, 0, 0);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    border-radius: 1rem;
+    width: 300px;
+    margin-bottom: 2vh;
+}
+
+#end-page a {
+    margin-right: 0px;
+}
+
+.small-text {
+    margin-bottom: 7vh;
+}
+
+.end-text {
+    font-size: 4rem;
+    color: dodgerblue;
+    /* text-shadow: 0 0 3rem rgba(0, 0, 255, 0.5); */
+    background-color: transparent;
+    margin-bottom: 5vh;
+}
+
+@media (max-width: 1280px) {
+    .columns {
+        grid-template-columns: 1fr; /* Stacks the columns vertically */
+    }
+    nav {
+        font-size: 2rem;
+        overflow: hidden;
+    }
+
+    .nav-items {
+        position: relative;
+        display: flex;
+        gap: 3px;
+        height: 100%;
+        width: 50%;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    
+    .nav-items a {
+        text-decoration: none;
+        margin-right: 10px;
+        background-color: none;
+    }
+    
+    .nav-items a button {
+        width: 40px;
+        height: 40px;
+        border: none;
+        background-size: cover;
+        background-color: transparent;
+        margin-top: 10px;
+        transition: opacity 0.1s ease; /* Add transition for smooth effect */
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+        text-align: center; /* Center text horizontally */
+        margin-top: 2.5vh; /* Position h1 20vh from the top */
+        margin-bottom: 2.5vh;
+    }
+    
+    .hero h2 {
+        color: antiquewhite;
+        font-size: 1.75rem;
+        margin-bottom: 25vh;
+        font-style: italic;
+        animation: fadeInText 3s infinite; /* Adjust the duration to match the transition time */
+        text-shadow: 
+            1px 1px 0 orange, /* Shadow 1 */
+            2px 2px 0 orange, /* Shadow 2 */
+            3px 3px 0 orange; /* Shadow 3 */
+        padding: 0.5rem;
+    }
+
+    .about {
+        height: auto;
+    }
+
+    .profile {
+        border-radius: 1rem;
+        width: 10rem;
+        position: absolute;
+        top: -1.5rem; /* Adjust to place the image slightly outside the top */
+        left: -1.5rem; /* Adjust to place the image slightly outside the left */
+        border: 0.33rem solid black; /* Add a black border */
+        background-color: white; /* Optional: to ensure the background of the image is white */
+    }
+    
+    .first-text {
+        position: relative;
+        padding-left: 8rem;
+        padding-top: 1rem;
+        font-size: 2.5rem;
+        /* margin-top: 1vh; */
+    }
+    
+    .first-p {
+        text-align: center;
+        margin-top: 5vh;
+        width: 100%;
+        padding: 1rem;
+        font-size: 1.25rem;
+    }
+
+    .second-text {
+        padding: 1rem;
+        padding-top: 0rem;
+        font-size: 2.5rem;
+    }
+    
+    .second-p {
+        text-align: center;
+        width: 100%;
+        padding: 1rem;
+        font-size: 1.25rem;
+        margin-bottom: 2rem;
+    }
+
+    .about-me-box {
+        margin-bottom: 5vh;
+    }
+
+    .happy-text {
+        font-size: 3rem;
+        margin-bottom: 5vh;
+    }
+
+    .who-text {
+        font-size: 3rem;
+    }
+
+    .portfolio {
+        height: auto;
+        /* margin-bottom: 5vh; */
+    }
+
+    .knowledge {
+        height: 35px;
+    }
+
+    #recent {
+        margin-top: 10vh;
+    }
+
+    .expertise {
+        display: flex;
+        flex-wrap: wrap; /* Add this line to allow wrapping */
+        width: 90%;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 5vh;
+    }
+
+    .port-p2 {
+        font-size: 1.25rem;
+    }
+
+    .carousel {
+        margin-top: 0vh;
+        margin-bottom: 10vh;
+    }
+
+    .contact {
+        height: auto;
+        overflow: visible;
+    }
+
+    #end-page-box {
+        width: 90%;
+    }
+
+    #end-page {
+        height: auto;
+        width: 45%;
+        gap: 3px;
+    }
+}

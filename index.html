@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VivatDev Portfolio</title>
+    <link href="https://fonts.cdnfonts.com/css/switzer" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js" defer></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@latest"></script>
+</head>
+<body>
+    <nav>
+        <h3 class="logo">VivatDev</h3>
+        <div class="nav-items">
+            <a href="https://discord.gg/dQtHaBeQXs">
+                <button class="nav-button" style="background-image: url('assets/dc.webp')"></button>
+            </a>
+            <a href="https://www.instagram.com/vivat.dev/">
+                <button class="nav-button" style="background-image: url('assets/insta.webp')"></button>
+            </a>
+            <a href="https://x.com/VivatDev/">
+                <button class="nav-button" style="background-image: url('assets/x.webp')"></button>
+            </a>
+            <a href="https://wa.me/+37060675975">
+                <button class="nav-button" style="background-image: url('assets/whats.webp')"></button>
+            </a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>WEB DESIGNER & DEVELOPER</h1>
+        <h2 id="animatedText">scale your online presence</h2>
+        <button id="getStarted">Get Started</button>
+    </section>
+
+    <section class="about" id="about">
+        <div class="columns">
+            <div class="column1">
+                <h1 class="who-text" class="hidden">Who is this guy?</h1>
+                <div class="about-me-box" class="hidden">
+                    <img src="./assets/profile.webp" class="profile">
+                    <h2 class="first-text">Hey, I'm Vivat..</h2>
+                    <p class="first-p">I've been coding since 2021 and I helped barbers, crypto and other businesses put themselves on the internet.</p>
+                    <hr class="divider">
+                    <h2 class="second-text">Why choose me?</h2>
+                    <p class="second-p">Big companies don't care about their customers after their first project.. As for me, I will always provide guidance for your site after the project, the customer support will always be there just for you.</p>
+                </div>
+            </div>
+            <div class="column2">
+                <img src="./assets/stripe.webp" class="payment">
+                <img src="./assets/discord.webp" class="discord">
+                <h1 class="happy-text">Happy & Satisfied Clients</h1>
+            </div>
+        </div>        
+    </section>
+
+    <div class="gradient-div">
+        <section class="portfolio">
+            <div class="columns">
+                <div class="column1">
+                    <h1 class="who-text" id="recent">Recent Projects</h1>
+                    <p class="port-p2">Had worked on websites using HTML, CSS, Javascript, Wix, Shopify..</p>
+                    <hr class="divider-2">
+                    <div class="expertise">
+                        <img class="knowledge" src="./assets/wix.webp">
+                        <img class="knowledge" src="./assets/webflow.webp">
+                        <img class="knowledge" src="./assets/shopify.webp">
+                        <img class="knowledge" src="./assets/sq.webp">
+                        <img class="knowledge" src="./assets/html.webp">
+                        <img class="knowledge" src="./assets/css.webp">
+                        <img class="knowledge" src="./assets/js.webp">
+                    </div>
+                </div>
+                <div class="column2">
+                    <div class="carousel">
+                        <img src="./assets/landing pages/1.webp" alt="Image 1" class="carousel-item active">
+                        <img src="./assets/landing pages/2.webp" alt="Image 2" class="carousel-item">
+                        <img src="./assets/landing pages/3.webp" alt="Image 2" class="carousel-item">
+                        <button class="visit-button" onclick="visitCurrentSlide()">Visit</button>
+                        <button class="prev" onclick="changeSlide(-1)">❮</button>
+                        <button class="next" onclick="changeSlide(1)">❯</button>
+                    </div>                    
+                </div>
+            </div>
+        </section>
+    
+        <section class="contact">
+            <div class="about-me-box" id="end-page-box">
+                <h1 class="end-text">Contact Me</h1>
+                <h2 class="small-text">..and build your online brand..</h2>
+                <div class="nav-items" id="end-page">
+                    <a href="https://discord.gg/dQtHaBeQXs">
+                        <button class="nav-button" style="background-image: url('assets/dc.webp')"></button>
+                    </a>
+                    <a href="https://www.instagram.com/vivat.dev/">
+                        <button class="nav-button" style="background-image: url('assets/insta.webp')"></button>
+                    </a>
+                    <a href="https://x.com/VivatDev/">
+                        <button class="nav-button" style="background-image: url('assets/x.webp')"></button>
+                    </a>
+                    <a href="https://wa.me/+37060675975">
+                        <button class="nav-button" style="background-image: url('assets/whats.webp')"></button>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.utils.toArray('.letter').forEach(letter => {
+            gsap.from(letter, {
+                opacity: 0,
+                y: 20,
+                scrollTrigger: {
+                    trigger: letter,
+                    start: 'top 80%',
+                    end: 'top 20%',
+                    scrub: 1
+                }
+            });
+        });
+    </script>
+</body>
+</html>
