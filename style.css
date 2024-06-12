@@ -564,7 +564,7 @@ nav::before {
         grid-template-columns: 1fr; /* Stacks the columns vertically */
     }
     nav {
-        font-size: 2rem;
+        font-size: 1.5rem;
         overflow: hidden;
     }
 
@@ -577,7 +577,7 @@ nav::before {
         justify-content: flex-end;
         align-items: center;
     }
-    
+
     .nav-items a {
         text-decoration: none;
         margin-right: 10px;
@@ -585,8 +585,8 @@ nav::before {
     }
     
     .nav-items a button {
-        width: 40px;
-        height: 40px;
+        width: 30px;
+        height: 30px;
         border: none;
         background-size: cover;
         background-color: transparent;
@@ -595,7 +595,7 @@ nav::before {
     }
 
     .hero h1 {
-        font-size: 3.5rem;
+        font-size: 9vw;
         text-align: center; /* Center text horizontally */
         margin-top: 2.5vh; /* Position h1 20vh from the top */
         margin-bottom: 2.5vh;
@@ -603,7 +603,7 @@ nav::before {
     
     .hero h2 {
         color: antiquewhite;
-        font-size: 1.75rem;
+        font-size: 5vw;
         margin-bottom: 25vh;
         font-style: italic;
         animation: fadeInText 3s infinite; /* Adjust the duration to match the transition time */
@@ -612,6 +612,7 @@ nav::before {
             2px 2px 0 orange, /* Shadow 2 */
             3px 3px 0 orange; /* Shadow 3 */
         padding: 0.5rem;
+        text-align: center;
     }
 
     .about {
@@ -630,31 +631,30 @@ nav::before {
     
     .first-text {
         position: relative;
-        padding-left: 8rem;
-        padding-top: 1rem;
-        font-size: 2.5rem;
-        /* margin-top: 1vh; */
+        padding-left: 8.5rem;
+        margin-top: 2.25vh;
+        font-size: 7.5vw;
     }
     
     .first-p {
         text-align: center;
-        margin-top: 5vh;
+        margin-top: 2.25vh;
         width: 100%;
         padding: 1rem;
-        font-size: 1.25rem;
+        font-size: 4vw;
     }
 
     .second-text {
         padding: 1rem;
         padding-top: 0rem;
-        font-size: 2.5rem;
+        font-size: 7.5vw;
     }
     
     .second-p {
         text-align: center;
         width: 100%;
         padding: 1rem;
-        font-size: 1.25rem;
+        font-size: 4vw;
         margin-bottom: 2rem;
     }
 
@@ -663,12 +663,12 @@ nav::before {
     }
 
     .happy-text {
-        font-size: 3rem;
+        font-size: 10vw;
         margin-bottom: 5vh;
     }
 
     .who-text {
-        font-size: 3rem;
+        font-size: 10vw;
     }
 
     .portfolio {
@@ -677,7 +677,7 @@ nav::before {
     }
 
     .knowledge {
-        height: 35px;
+        height: 30px;
     }
 
     #recent {
@@ -694,7 +694,7 @@ nav::before {
     }
 
     .port-p2 {
-        font-size: 1.25rem;
+        font-size: 1.33rem;
     }
 
     .carousel {
@@ -709,11 +709,20 @@ nav::before {
 
     #end-page-box {
         width: 90%;
+        text-align: center;
     }
 
     #end-page {
         height: auto;
         width: 45%;
         gap: 3px;
+    }
+
+    .end-text {
+        font-size: 3rem;
+    }
+
+    .small-text {
+        font-size: 1.25rem;
     }
 }
