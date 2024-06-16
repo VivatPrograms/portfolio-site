@@ -393,7 +393,7 @@ nav::before {
 .carousel-item {
     display: none;
     width: 100vw;
-    height: 50vh;
+    height: auto;
     object-fit: cover;
 }
 
