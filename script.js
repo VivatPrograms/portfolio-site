@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Scroll into view
-    const elements = document.querySelectorAll('h1, h2, h3, p, .text-element');
+    const elements = document.querySelectorAll('h1, h2, h3, p, .text-element, .nav-button');
     let lastScrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
     const observer = new IntersectionObserver((entries) => {
@@ -40,9 +40,9 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // Start the automatic slide change every 3 seconds
-    setInterval(function() {
-        changeSlide(1);
-    }, 3000);
+    // setInterval(function() {
+    //     changeSlide(1);
+    // }, 3000);
 });
 
 let slideIndex = 0;
@@ -68,9 +68,10 @@ function visitCurrentSlide() {
     if (activeSlide) {
         const activeIndex = Array.from(slides).indexOf(activeSlide);
         const urls = [
-            "https://www.likethestock.com/",
+            "https://elitedigitalagency.com/",
             "https://square1.lt/?gad_source=1&gclid=CjwKCAjwjqWzBhAqEiwAQmtgT1P01pwIjjy015-PJwXMSdYLwZW3CJeY8r_oi2YOrRMBanh-PNB4EBoC_w0QAvD_BwE",
-            "https://cuack.onrender.com/"
+            "https://hobbyfitness.lt/",
+            "https://www.likethestock.com/",
             // Add more URLs for additional images
         ];
         if (urls[activeIndex]) {
