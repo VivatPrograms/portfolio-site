@@ -72,6 +72,7 @@ function visitCurrentSlide() {
             "https://square1.lt/?gad_source=1&gclid=CjwKCAjwjqWzBhAqEiwAQmtgT1P01pwIjjy015-PJwXMSdYLwZW3CJeY8r_oi2YOrRMBanh-PNB4EBoC_w0QAvD_BwE",
             "https://hobbyfitness.lt/",
             "https://www.likethestock.com/",
+            "https://amiable-devices-676834.framer.app/",
             // Add more URLs for additional images
         ];
         if (urls[activeIndex]) {
